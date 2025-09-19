@@ -1,18 +1,10 @@
-# Natural Disaster
+If You User And Not The Admin/Owner This File, But You Can Acces This!
+Pls Get out This Link!
 
-Version The Script : V1.0 (Release)
-
-Log : Update Log
-- V1.0
-- Release The Script
-
-Function Script :
-- Coming Soon To Preview It's!
-(Photo Preview Nya nanti Di Taro Sini!)
-
-Here The Loadstring!
+Toolss Github :
 ```bash
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Natural-Disaster/Natural_Disaster.lua"))()
+You Can Writing Like This :
+``` bash
+It's This Text, Ready To Copy!
 ```
-
-[End]
+```
