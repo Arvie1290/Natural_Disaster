@@ -28,7 +28,7 @@ Me: Maybe it's easy to make? Because the script doesn't require much code, it's 
 # Back To Topic
 Here's the script I made!
 
--- Natural Disaster --
+[-- Natural Disaster --](www.tiktok.com/@arvie_akun_keempat)
 -- Pull A Friend! --
 -- TP/Tween GUI --
 -- Current Position Player --
