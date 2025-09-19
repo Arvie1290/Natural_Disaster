@@ -1,6 +1,11 @@
 If You User And Not The Admin/Owner This File, But You Can Acces This!
 Pls Get out This Link!
 
+# Loadstring Contoh
+```bash
+loadstring(game:HttpGet("[Taro Link Sini!]"))()
+```
+
 Tools Github :
 # Contoh Command/Syntax GitHub README.md
 
