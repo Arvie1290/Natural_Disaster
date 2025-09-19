@@ -1,0 +1,6 @@
+- [x] Completed task
+- [ ] Incomplete task
+- [x] Another completed task
+- [ ] Todo item
+  - [x] Sub-task completed
+  - [ ] Sub-task pending
