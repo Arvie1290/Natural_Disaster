@@ -19,6 +19,8 @@ console.log("This code is hidden by default");
 <br> <!-- Line break -->
 
 3. math
+
+
    Inline math: $x^2 + y^2 = z^2$
 
 Block math:
