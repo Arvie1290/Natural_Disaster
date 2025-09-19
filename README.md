@@ -9,5 +9,5 @@
 
 # Loadstring Here!
 ```bash
-loadstring(httpget:((loadstring babi))
+loadstring(game:HttpGet("loadstring(game:HttpGet("https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Natural-Disaster/Natural_Disaster.lua"))()"))()
 ```
