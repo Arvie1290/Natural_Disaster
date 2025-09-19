@@ -10,4 +10,5 @@ Function Script :
 - Coming Soon To Preview It's!
 (Photo Preview Nya nanti Di Taro Sini!)
 
+npm install
 [End]
