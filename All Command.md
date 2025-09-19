@@ -28,4 +28,23 @@ $$
 \sum_{i=1}^{n} x_i = x_1 + x_2 + \cdots + x_n
 $$
 
-4. idk
+4. Mermaid Diagrams
+```mermaid
+graph TD
+    A[Start] --> B{Decision}
+    B -->|Yes| C[Action 1]
+    B -->|No| D[Action 2]
+    C --> E[End]
+    D --> E
+
+## 19. Table of Contents
+```markdown
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [API Reference](#api-reference)
+- [Contributing](#contributing)
+- [License](#license)
+```
+
+5. 
