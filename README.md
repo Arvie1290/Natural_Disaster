@@ -37,7 +37,7 @@ Here's the script I made!
 [-- TP/Tween GUI --](https://github.com/Arvie1290/Natural_Disaster/tree/TP_Tween_Gui)
 
 
-[-- Current Position Player --]()
+[-- Current Position Player --](https://github.com/Arvie1290/Natural_Disaster/tree/Currently-Position-Player)
 
 
 [-- Steal A Brainrot (Modded) --](https://github.com/Arvie1290/Natural_Disaster/tree/Steal-A-Brainrot-Modded-Only)
