@@ -157,4 +157,5 @@ _G.SlapTowerCleanup = function()
     pcall(function() if gui and gui.Parent then gui:Destroy() end end)
     loopTpEnabled = false
     _G.SlapTowerCleanup = nil
+
 end
