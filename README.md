@@ -32,6 +32,7 @@ Here's the script I made!
 -- Pull A Friend! --
 -- TP/Tween GUI --
 -- Current Position Player --
+-- Steal A Brainrot (Modded) --
 
 That's it for now. Other scripts are coming!
 
