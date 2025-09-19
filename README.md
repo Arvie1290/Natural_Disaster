@@ -13,4 +13,5 @@ Function Script :
 [End]
 
 
+```bash
 npm install
