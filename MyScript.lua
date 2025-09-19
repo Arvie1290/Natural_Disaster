@@ -414,6 +414,7 @@ local buttons = {
     {name = "Natural Disaster (V1.0)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Natural-Disaster/Natural_Disaster.lua"},
     {name = "Pull A Friend! (V0.9)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/refs/heads/Pull-A-Friend!/World1.lua"},
     {name = "TP/Tween Gui (V1.0)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/refs/heads/TP_Tween_Gui/TP_Tween_Gui.lua"},
+    {name = "Mouth YEET! (V0.5)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/refs/heads/Mouth-YEET!/Mouth_YEET!.lua"},
     -- tambah lagi disini
 }
 
