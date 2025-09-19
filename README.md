@@ -42,7 +42,7 @@ Here's the script I made!
 
 [-- Steal A Brainrot (Modded) --](https://github.com/Arvie1290/Natural_Disaster/tree/Steal-A-Brainrot-Modded-Only)
 
-[-- Mouth Yeet! --]()
+[-- Mouth Yeet! --](https://github.com/Arvie1290/Natural_Disaster/blob/Mouth-YEET!/README.md)
 
 That's it for now. Other scripts are coming!
 
