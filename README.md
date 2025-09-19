@@ -2,7 +2,7 @@
 - Status = Open-Source
 - Made For =
 - ```bash
-  Steal A Brainrot Modded
+  Pull A Friend!
   ```
 - Version : V0.9 (Beta)
 
