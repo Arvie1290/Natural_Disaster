@@ -36,4 +36,10 @@ Here's the script I made!
 
 That's it for now. Other scripts are coming!
 
+# Loadstring To Connect My Script all!
+
+```
+loadstring(game:HttpGet("Not Available Pls Wait"))()
+```
+
 # Goodbye!
