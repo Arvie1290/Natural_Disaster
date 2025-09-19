@@ -29,9 +29,17 @@ Me: Maybe it's easy to make? Because the script doesn't require much code, it's 
 Here's the script I made!
 
 [-- Natural Disaster --](https://github.com/Arvie1290/Natural_Disaster/tree/Natural-Disaster)
--- Pull A Friend! --
--- TP/Tween GUI --
--- Current Position Player --
+
+
+[-- Pull A Friend! --]()
+
+
+[-- TP/Tween GUI --]()
+
+
+[-- Current Position Player --]()
+
+
 [-- Steal A Brainrot (Modded) --](https://github.com/Arvie1290/Natural_Disaster/tree/Steal-A-Brainrot-Modded-Only)
 
 That's it for now. Other scripts are coming!
