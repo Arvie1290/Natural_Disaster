@@ -9,5 +9,5 @@
 
 # Loadstring Here!
 ```bash
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/refs/heads/Mouth-YEET!/Mouth_YEET!.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Mouth-YEET!/Mouth_YEET!.lua"))()
 ```
