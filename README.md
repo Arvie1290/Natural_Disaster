@@ -15,3 +15,4 @@ Function Script :
 
 ```bash
 npm install
+```
