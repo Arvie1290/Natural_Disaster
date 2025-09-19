@@ -37,6 +37,7 @@ graph TD
     C --> E[End]
     D --> E
 
+
 ## 19. Table of Contents
 ```markdown
 ## Table of Contents
@@ -47,4 +48,13 @@ graph TD
 - [License](#license)
 ```
 
-5. 
+5. Definition Lists
+<dl>
+  <dt>Term 1</dt>
+  <dd>Definition 1</dd>
+  
+  <dt>Term 2</dt>
+  <dd>Definition 2</dd>
+</dl>
+
+6.
