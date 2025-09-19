@@ -57,4 +57,33 @@ graph TD
   <dd>Definition 2</dd>
 </dl>
 
-6.
+6. Comment (Hidden Text)
+<!-- This is a comment and won't be displayed -->
+
+7. Footnotes
+Here's a sentence with a footnote[^1].
+
+[^1]: This is the footnote content.
+Template README Lengkap
+# Project Name
+
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
+
+> Short description of your project
+
+## 📋 Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [Features](#features)
+- [Contributing](#contributing)
+- [License](#license)
+
+## 🚀 Installation
+
+```bash
+npm install project-name
+💡 Usage
+const project = require('project-name');
+project.doSomething();
+```
