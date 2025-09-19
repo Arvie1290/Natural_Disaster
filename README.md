@@ -1,57 +1,13 @@
-# Welcome To My Complication Script!
-Let Me Say Something
-
-# Introduction
-Here, I'll introduce myself:
-
-My name is Arvie
-
-I live in Indonesia
-
-I'm 12 years old! (2025)
-
-# Question
-🗣️: Why can you write scripts?
-
-Me: Because I asked ChatGPT or Claude for help to solve my script problems. I just gave the two AI commands, and boom, my script was created (not entirely AI-made scripts).
+# Status
+- Status = Open-Source
+- Made For =
+- ```bash
+  Mouth YEET!
+  ```
+- Version : V0.5 (Beta)
 
 
-🗣️: Why are you interested in scripting?
-
-Me: Because I saw people who were already good at scripting, and they said, "This coding skill is very useful for the future," so I became interested.
-
-
-🗣️: Why did you choose the Roblox Lua script?
-
-Me: Maybe it's easy to make? Because the script doesn't require much code, it's easy to use, like JavaScript, CSS, Python, HTML, and others.
-
-# Back To Topic
-Here's the script I made!
-
-[-- Natural Disaster --](https://github.com/Arvie1290/Natural_Disaster/tree/Natural-Disaster)
-
-
-[-- Pull A Friend! --](https://github.com/Arvie1290/Natural_Disaster/tree/Pull-A-Friend!)
-
-
-[-- TP/Tween GUI --](https://github.com/Arvie1290/Natural_Disaster/tree/TP_Tween_Gui)
-
-
-[-- Current Position Player --]()
-
-
-[-- Steal A Brainrot (Modded) --](https://github.com/Arvie1290/Natural_Disaster/tree/Steal-A-Brainrot-Modded-Only)
-
-[-- Mouth Yeet! --]()
-
-That's it for now. Other scripts are coming!
-
-# Loadstring To Connect My Script all!
-
+# Loadstring Here!
+```bash
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/refs/heads/Steal-A-Brainrot-Modded-Only/SAB_Modded.lua"))()
 ```
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/main/MyScript.lua"))()
-```
-(Sorry Maybe This Loadstring Not Be Run)
-(For Now, Recommend To Use Open-Source File On MyScript.lua)
-
-# Goodbye!
