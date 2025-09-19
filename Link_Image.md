@@ -5,4 +5,4 @@
 ![Image dengan title](https://via.placeholder.com/150 "Placeholder Image")
 
 <!-- Relative link ke file dalam repo -->
-[Documentation](./docs/README.md)
+[Documentation](README.md)
