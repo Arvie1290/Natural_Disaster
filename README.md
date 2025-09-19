@@ -47,7 +47,7 @@ That's it for now. Other scripts are coming!
 # Loadstring To Connect My Script all!
 
 ```
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/main/MyScript.lua))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/main/MyScript.lua"))()
 ```
 
 # Goodbye!
