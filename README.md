@@ -42,6 +42,8 @@ Here's the script I made!
 
 [-- Steal A Brainrot (Modded) --](https://github.com/Arvie1290/Natural_Disaster/tree/Steal-A-Brainrot-Modded-Only)
 
+[-- Mouth Yeet! --]()
+
 That's it for now. Other scripts are coming!
 
 # Loadstring To Connect My Script all!
