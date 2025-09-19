@@ -17,3 +17,13 @@ console.log("This code is hidden by default");
 </div>
 
 <br> <!-- Line break -->
+
+3. math
+   Inline math: $x^2 + y^2 = z^2$
+
+Block math:
+$$
+\sum_{i=1}^{n} x_i = x_1 + x_2 + \cdots + x_n
+$$
+
+4. idk
