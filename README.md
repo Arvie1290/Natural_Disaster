@@ -39,7 +39,7 @@ That's it for now. Other scripts are coming!
 # Loadstring To Connect My Script all!
 
 ```
-loadstring(game:HttpGet("Not Available Pls Wait"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/refs/heads/main/MyScript.lua"))()
 ```
 
 # Goodbye!
