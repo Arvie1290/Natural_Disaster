@@ -31,7 +31,7 @@ Here's the script I made!
 [-- Natural Disaster --](https://github.com/Arvie1290/Natural_Disaster/tree/Natural-Disaster)
 
 
-[-- Pull A Friend! --]()
+[-- Pull A Friend! --](https://github.com/Arvie1290/Natural_Disaster/tree/Pull-A-Friend!)
 
 
 [-- TP/Tween GUI --]()
