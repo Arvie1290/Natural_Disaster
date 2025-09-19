@@ -27,7 +27,7 @@ local TitleBar = Instance.new("TextLabel")
 TitleBar.Size = UDim2.new(1, -30, 0, 30)
 TitleBar.Position = UDim2.new(0, 0, 0, 0)
 TitleBar.BackgroundColor3 = Color3.fromRGB(40, 0, 0)
-TitleBar.Text = "ArvieHub"
+TitleBar.Text = "ArvieHub (Added Currently Position Player)"
 TitleBar.TextColor3 = Color3.fromRGB(255, 0, 0)
 TitleBar.Font = Enum.Font.SourceSansBold
 TitleBar.TextSize = 18
@@ -410,11 +410,12 @@ end
 
 -- Daftar tombol (ganti link dengan raw github/pastebin kamu)
 local buttons = {
-    {name = "Steal A Brainrot (V0.8)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/refs/heads/Steal-A-Brainrot-Modded-Only/SAB_Modded.lua"},
+    {name = "Steal A Brainrot (V0.8)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Steal-A-Brainrot-Modded-Only/SAB_Modded.lua"},
     {name = "Natural Disaster (V1.0)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Natural-Disaster/Natural_Disaster.lua"},
-    {name = "Pull A Friend! (V0.9)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/refs/heads/Pull-A-Friend!/World1.lua"},
-    {name = "TP/Tween Gui (V1.0)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/refs/heads/TP_Tween_Gui/TP_Tween_Gui.lua"},
-    {name = "Mouth YEET! (V0.5)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/refs/heads/Mouth-YEET!/Mouth_YEET!.lua"},
+    {name = "Pull A Friend! (V0.9)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Pull-A-Friend!/World1.lua"},
+    {name = "TP/Tween Gui (V1.0)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/TP_Tween_Gui/TP_Tween_Gui.lua"},
+    {name = "Mouth YEET! (V0.5)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Mouth-YEET!/Mouth_YEET!.lua"},
+    {name = "Currently Position Player (V1.0)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Currently-Position-Player/RPP.lua"},
     -- tambah lagi disini
 }
 
