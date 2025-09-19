@@ -1,4 +1,4 @@
-# Yeah, Welcome To My Complication Script!
+# Welcome To My Complication Script!
 Let Me Say Something
 
 # Introduction
@@ -28,7 +28,7 @@ Me: Maybe it's easy to make? Because the script doesn't require much code, it's 
 # Back To Topic
 Here's the script I made!
 
-[-- Natural Disaster --](www.tiktok.com/@arvie_akun_keempat)
+[-- Natural Disaster --]([www.tiktok.com/@arvie_akun_keempat](https://github.com/Arvie1290/Natural_Disaster/tree/Natural-Disaster))
 -- Pull A Friend! --
 -- TP/Tween GUI --
 -- Current Position Player --
