@@ -10,10 +10,9 @@ Function Script :
 - Coming Soon To Preview It's!
 (Photo Preview Nya nanti Di Taro Sini!)
 
-[End]
-
-
+Here The Loadstring!
 ```bash
-npm install
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Natural-Disaster/Natural_Disaster.lua"))()
 ```
-nxjshsjbsidhx
+
+[End]
