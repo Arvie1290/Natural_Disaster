@@ -110,7 +110,7 @@ local buttons = {
     {name = "Steal A Brainrot (V0.8)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/refs/heads/Steal-A-Brainrot-Modded-Only/SAB_Modded.lua"},
     {name = "Natural Disaster (V1.0)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Natural-Disaster/Natural_Disaster.lua"},
     {name = "Pull A Friend! (V0.9)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/refs/heads/Pull-A-Friend!/World1.lua"},
-    {name = "TP/Tween Gui (V1.0)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/refs/heads/TP_Tween_Gui/TP_Tween_Gui.lua"
+    {name = "TP/Tween Gui (V1.0)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/refs/heads/TP_Tween_Gui/TP_Tween_Gui.lua"},
     -- tambah lagi disini
 }
 
