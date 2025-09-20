@@ -30,15 +30,11 @@ Here's the script I made!
 
 [-- Natural Disaster --](https://github.com/Arvie1290/Natural_Disaster/tree/Natural-Disaster)
 
-
 [-- Pull A Friend! --](https://github.com/Arvie1290/Natural_Disaster/tree/Pull-A-Friend!)
-
 
 [-- TP/Tween GUI --](https://github.com/Arvie1290/Natural_Disaster/tree/TP_Tween_Gui)
 
-
 [-- Current Position Player --](https://github.com/Arvie1290/Natural_Disaster/tree/Currently-Position-Player)
-
 
 [-- Steal A Brainrot (Modded) --](https://github.com/Arvie1290/Natural_Disaster/tree/Steal-A-Brainrot-Modded-Only)
 
