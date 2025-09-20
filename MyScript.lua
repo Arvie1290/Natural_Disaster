@@ -1,4 +1,6 @@
- -- ArvieHub
+-- the website official by me
+-- https://github.com/Arvie1290/Natural_Disaster/tree/main
+-- ArvieHub
 local Players = game:GetService("Players")
 local CoreGui = game:GetService("CoreGui")
 local LocalPlayer = Players.LocalPlayer
