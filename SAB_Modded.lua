@@ -312,7 +312,7 @@ local leaveBtn = Instance.new("TextButton", content)
 leaveBtn.Size = UDim2.new(1, 0, 0, 30)
 leaveBtn.Position = UDim2.new(0, 0, 0, 198) -- taro di atas credit
 leaveBtn.BackgroundColor3 = Color3.fromRGB(170, 30, 30)
-leaveBtn.Text = "Leave"
+leaveBtn.Text = "Leave (Kick)"
 leaveBtn.TextColor3 = Color3.new(1, 1, 1)
 leaveBtn.Font = Enum.Font.GothamBold
 leaveBtn.TextScaled = true
@@ -320,7 +320,7 @@ leaveBtn.AutoButtonColor = true
 Instance.new("UICorner", leaveBtn).CornerRadius = UDim.new(0, 8)
 
 leaveBtn.MouseButton1Click:Connect(function()
-LocalPlayer:Kick("You Has Been Click To Leave (Trick Kick).")
+LocalPlayer:Kick("You Has Been Click To Leave.")
 end)
 
 notify("SAB Modded","GUI loaded and stable.",3)
