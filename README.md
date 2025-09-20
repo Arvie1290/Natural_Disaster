@@ -1,14 +1,14 @@
 # Welcome To My Complication Script!
-Let Me Say Something
+'Let Me Say Something'
 
 # Introduction
 Here, I'll introduce myself:
 
-My name is Arvie
+'My name is Arvie'
 
 I live in Indonesia
 
-I'm 12 years old! (2025)
+'I'm 12 years old! (2025)'
 
 # Question
 🗣️: Why can you write scripts?
@@ -40,7 +40,7 @@ Me: Maybe it's easy to make? Because the script doesn't require much code, it's 
 
 [-- Mouth Yeet! --](https://github.com/Arvie1290/Natural_Disaster/blob/Mouth-YEET!/README.md)
 
-That's it for now. Other scripts are coming!
+'That's it for now. Other scripts are coming!'
 
 # Loadstring To Connect My Script all!
 
@@ -48,6 +48,6 @@ That's it for now. Other scripts are coming!
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/main/MyScript.lua"))()
 -- the official me : https://github.com/Arvie1290/Natural_Disaster/tree/main
 ```
-(If this Loadstring Don't Run, The Script Loadstring Is A Error/Bug, Pls Feedback Me Ok?)
+'(If this Loadstring Don't Run, The Script Loadstring Is A Error/Bug, Pls Feedback Me Ok?)'
 
 # Goodbye!
