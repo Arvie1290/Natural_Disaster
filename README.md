@@ -46,6 +46,7 @@ That's it for now. Other scripts are coming!
 
 ```
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/main/MyScript.lua"))()
+-- the official me : https://github.com/Arvie1290/Natural_Disaster/tree/main
 ```
 (Sorry Maybe This Loadstring Not Be Run)
 (For Now, Recommend To Use Open-Source File On MyScript.lua)
