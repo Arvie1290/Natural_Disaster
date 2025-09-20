@@ -26,7 +26,7 @@ Me: Because I saw people who were already good at scripting, and they said, "Thi
 Me: Maybe it's easy to make? Because the script doesn't require much code, it's easy to use, like JavaScript, CSS, Python, HTML, and others.
 
 # Back To Topic
-Here's the script I made!
+### Here's the script I made!
 
 [-- Natural Disaster --](https://github.com/Arvie1290/Natural_Disaster/tree/Natural-Disaster)
 
