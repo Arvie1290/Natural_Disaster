@@ -48,6 +48,6 @@ Me: Maybe it's easy to make? Because the script doesn't require much code, it's 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/main/MyScript.lua"))()
 -- the official me : https://github.com/Arvie1290/Natural_Disaster/tree/main
 ```
-'(If this Loadstring Don't Run, The Script Loadstring Is A Error/Bug, Pls Feedback Me Ok?)'
+<!-- (If this Loadstring Don't Run, The Script Loadstring Is A Error/Bug, Pls Feedback Me Ok?) -->
 
 # Goodbye!
