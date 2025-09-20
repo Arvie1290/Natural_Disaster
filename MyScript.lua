@@ -1,5 +1,6 @@
 -- the website official by me
 -- https://github.com/Arvie1290/Natural_Disaster/tree/main
+
 -- ArvieHub
 local Players = game:GetService("Players")
 local CoreGui = game:GetService("CoreGui")
@@ -29,7 +30,7 @@ local TitleBar = Instance.new("TextLabel")
 TitleBar.Size = UDim2.new(1, -30, 0, 30)
 TitleBar.Position = UDim2.new(0, 0, 0, 0)
 TitleBar.BackgroundColor3 = Color3.fromRGB(40, 0, 0)
-TitleBar.Text = "ArvieHub"
+TitleBar.Text = "ArvieHub (V1.0)"
 TitleBar.TextColor3 = Color3.fromRGB(255, 0, 0)
 TitleBar.Font = Enum.Font.SourceSansBold
 TitleBar.TextSize = 18
