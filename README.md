@@ -37,7 +37,7 @@ Me: Maybe it's easy to make? Because the script doesn't require much code, it's 
 
 [-- Steal A Brainrot (Modded) --](https://github.com/Arvie1290/Natural_Disaster/tree/Steal-A-Brainrot-Modded-Only)
 
-[-- Mouth Yeet! --](https://github.com/Arvie1290/Natural_Disaster/blob/Mouth-YEET!/README.me
+[-- Mouth Yeet! --](https://github.com/Arvie1290/Natural_Disaster/blob/Mouth-YEET!)
 
 > for now. Other scripts are coming!
 # Loadstring To Connect My Script all!
