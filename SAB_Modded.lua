@@ -154,7 +154,17 @@ end
 local btn1,tgl1,set1,st1=createControls(6,"TP To Base",true)
 local btn2,tgl2=createControls(70,"TP To Front",false)
 local btn3,tgl3,set3,st3=createControls(134,"Lock Base",true)
-local btn4,_ = createControls(198,"Instant Proximity",false)
+
+-- ✅ Replace Button4 with Credit Label
+local credit = Instance.new("TextLabel", content)
+credit.Size = UDim2.new(1, 0, 0, 30)
+credit.Position = UDim2.new(0, 0, 0, 198)
+credit.BackgroundTransparency = 1
+credit.Text = "Made By : @Script_Test1290"
+credit.TextColor3 = Color3.new(1, 1, 1)
+credit.Font = Enum.Font.GothamBold
+credit.TextScaled = true
+credit.TextXAlignment = Enum.TextXAlignment.Center
 
 -- toggle handlers
 tgl1.MouseButton1Click:Connect(function() modes.B1=(modes.B1=="TP") and "Tween" or "TP"; tgl1.Text="Mode: "..modes.B1 end)
@@ -245,7 +255,7 @@ btn1.MouseButton1Click:Connect(function()
 
             -- Auto revert text after 3s if not clicked
             task.spawn(function()
-                task.wait(3)
+                task.wait(5)
                 if btn1.Text == "Click To Back!" then
                     btn1.Text = "TP To Base"
                 end
@@ -256,6 +266,7 @@ btn1.MouseButton1Click:Connect(function()
         setBusy(btn1, false)
     end)
 end)
+
 -- Button2
 btn2.MouseButton1Click:Connect(function()
     if busy.B2 then return end
