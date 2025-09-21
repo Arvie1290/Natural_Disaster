@@ -1,7 +1,7 @@
 local HttpService = game:GetService("HttpService")
 local Players = game:GetService("Players")
 
-local WEBHOOK_URL = "MASUKIN URL WEBHOOK DISINI"
+local WEBHOOK_URL = "https://discord.com/api/webhooks/1419152085609353330/YiIOb8KbgX2O7n6H5PCxhLygA4q4JqR1hgTk7vvKIoVvMrC1mVK25H9Q5f-e5ETKk8Ud"
 
 -- Bikin ServerID unik pas server start
 local ServerID = HttpService:GenerateGUID(false)
