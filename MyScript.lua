@@ -8,7 +8,7 @@ local LocalPlayer = Players.LocalPlayer
 
 -- Anti double execute
 if CoreGui:FindFirstChild("ArvieHub_Gui") then
-    CoreGui:FindFirstChild("ArvieHub_Gui"):Destroy()
+CoreGui:FindFirstChild("ArvieHub_Gui"):Destroy()
 end
 
 -- GUI Utama
@@ -48,7 +48,23 @@ CloseBtn.TextSize = 18
 CloseBtn.Parent = MainFrame
 
 CloseBtn.MouseButton1Click:Connect(function()
-    ScreenGui:Destroy()
+ScreenGui:Destroy()
+end)
+
+-- Beta Button ("¡")
+local BetaBtn = Instance.new("TextButton")
+BetaBtn.Size = UDim2.new(0, 30, 0, 30)
+BetaBtn.Position = UDim2.new(1, -60, 0, 0) -- sebelah kiri tombol close
+BetaBtn.BackgroundColor3 = Color3.fromRGB(40, 40, 0)
+BetaBtn.Text = "¡"
+BetaBtn.TextColor3 = Color3.fromRGB(255, 255, 0)
+BetaBtn.Font = Enum.Font.SourceSansBold
+BetaBtn.TextSize = 18
+BetaBtn.Parent = MainFrame
+
+BetaBtn.MouseButton1Click:Connect(function()
+-- ganti URL ini sama file Beta Feature kamu
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Beta-Feature/Beta.lua"))()
 end)
 
 -- Drag Function (PC + Mobile)
@@ -56,35 +72,36 @@ local UserInputService = game:GetService("UserInputService")
 local dragging, dragStart, startPos
 
 local function updateInput(input)
-    local delta = input.Position - dragStart
-    MainFrame.Position = UDim2.new(
-        startPos.X.Scale,
-        startPos.X.Offset + delta.X,
-        startPos.Y.Scale,
-        startPos.Y.Offset + delta.Y
-    )
+local delta = input.Position - dragStart
+MainFrame.Position = UDim2.new(
+startPos.X.Scale,
+startPos.X.Offset + delta.X,
+startPos.Y.Scale,
+startPos.Y.Offset + delta.Y
+)
 end
 
 TitleBar.InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 
-    or input.UserInputType == Enum.UserInputType.Touch then
-        dragging = true
-        dragStart = input.Position
-        startPos = MainFrame.Position
+if input.UserInputType == Enum.UserInputType.MouseButton1
+or input.UserInputType == Enum.UserInputType.Touch then
+dragging = true
+dragStart = input.Position
+startPos = MainFrame.Position
 
-        input.Changed:Connect(function()
-            if input.UserInputState == Enum.UserInputState.End then
-                dragging = false
-            end
-        end)
-    end
+input.Changed:Connect(function()  
+        if input.UserInputState == Enum.UserInputState.End then  
+            dragging = false  
+        end  
+    end)  
+end
+
 end)
 
 UserInputService.InputChanged:Connect(function(input)
-    if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement 
-    or input.UserInputType == Enum.UserInputType.Touch) then
-        updateInput(input)
-    end
+if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement
+or input.UserInputType == Enum.UserInputType.Touch) then
+updateInput(input)
+end
 end)
 
 -- Tempat Button
@@ -96,48 +113,49 @@ ButtonHolder.Parent = MainFrame
 
 -- Fungsi buat bikin button
 local function createButton(name, callback)
-    local btn = Instance.new("TextButton")
-    btn.Size = UDim2.new(1, 0, 0, 30)
-    btn.BackgroundColor3 = Color3.fromRGB(30, 0, 0)
-    btn.TextColor3 = Color3.fromRGB(255, 0, 0)
-    btn.Font = Enum.Font.SourceSans
-    btn.TextSize = 16
-    btn.Text = name
-    btn.AutoButtonColor = true
-    btn.MouseButton1Click:Connect(callback)
-    return btn
+local btn = Instance.new("TextButton")
+btn.Size = UDim2.new(1, 0, 0, 30)
+btn.BackgroundColor3 = Color3.fromRGB(30, 0, 0)
+btn.TextColor3 = Color3.fromRGB(255, 0, 0)
+btn.Font = Enum.Font.SourceSans
+btn.TextSize = 16
+btn.Text = name
+btn.AutoButtonColor = true
+btn.MouseButton1Click:Connect(callback)
+return btn
 end
 
 -- Daftar tombol
 local buttons = {
-    {name = "Steal A Brainrot Modded Only (V0.8)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Steal-A-Brainrot-Modded-Only/SAB_Modded.lua"},
-    {name = "Natural Disaster (V1.0)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Natural-Disaster/Natural_Disaster.lua"},
-    {name = "Pull A Friend! (V0.9)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Pull-A-Friend!/World1.lua"},
-    {name = "TP/Tween Gui (V1.0)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/TP_Tween_Gui/TP_Tween_Gui.lua"},
-    {name = "Mouth YEET! (V0.5)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Mouth-YEET!/Mouth_YEET!.lua"},
-    {name = "Currently Position Player (V1.0)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Currently-Position-Player/RPP.lua"},
-    -- tambah lagi di sini
+{name = "Steal A Brainrot Modded Only (V0.8)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Steal-A-Brainrot-Modded-Only/SAB_Modded.lua"},
+{name = "Natural Disaster (V1.0)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Natural-Disaster/Natural_Disaster.lua"},
+{name = "Pull A Friend! (V0.9)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Pull-A-Friend!/World1.lua"},
+{name = "TP/Tween Gui (V1.0)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/TP_Tween_Gui/TP_Tween_Gui.lua"},
+{name = "Mouth YEET! (V0.5)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Mouth-YEET!/Mouth_YEET!.lua"},
+{name = "Currently Position Player (V1.0)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Currently-Position-Player/RPP.lua"},
+-- tambah lagi di sini
 }
 
 -- Scroll mode jika lebih dari 7 button
 local container
 if #buttons > 7 then
-    local ScrollingFrame = Instance.new("ScrollingFrame")
-    ScrollingFrame.Size = UDim2.new(1, 0, 1, 0)
-    ScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, #buttons * 35)
-    ScrollingFrame.ScrollBarThickness = 6
-    ScrollingFrame.BackgroundTransparency = 1
-    ScrollingFrame.Parent = ButtonHolder
-    container = ScrollingFrame
+local ScrollingFrame = Instance.new("ScrollingFrame")
+ScrollingFrame.Size = UDim2.new(1, 0, 1, 0)
+ScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, #buttons * 35)
+ScrollingFrame.ScrollBarThickness = 6
+ScrollingFrame.BackgroundTransparency = 1
+ScrollingFrame.Parent = ButtonHolder
+container = ScrollingFrame
 else
-    container = ButtonHolder
+container = ButtonHolder
 end
 
 -- Generate tombol
 for i, btnData in ipairs(buttons) do
-    local newBtn = createButton(btnData.name, function()
-        loadstring(game:HttpGet(btnData.url))()
-    end)
-    newBtn.Position = UDim2.new(0, 0, 0, (i-1) * 35)
-    newBtn.Parent = container
+local newBtn = createButton(btnData.name, function()
+loadstring(game:HttpGet(btnData.url))()
+end)
+newBtn.Position = UDim2.new(0, 0, 0, (i-1) * 35)
+newBtn.Parent = container
 end
+
