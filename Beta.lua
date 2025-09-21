@@ -48,22 +48,6 @@ CloseBtn.MouseButton1Click:Connect(function()
 ScreenGui:Destroy()
 end)
 
--- Beta Button ("¡")
-local BetaBtn = Instance.new("TextButton")
-BetaBtn.Size = UDim2.new(0, 30, 0, 30)
-BetaBtn.Position = UDim2.new(1, -60, 0, 0) -- sebelah kiri tombol close
-BetaBtn.BackgroundColor3 = Color3.fromRGB(40, 40, 0)
-BetaBtn.Text = "¡"
-BetaBtn.TextColor3 = Color3.fromRGB(255, 255, 0)
-BetaBtn.Font = Enum.Font.SourceSansBold
-BetaBtn.TextSize = 18
-BetaBtn.Parent = MainFrame
-
-BetaBtn.MouseButton1Click:Connect(function()
--- ganti URL ini sama file Beta Feature kamu
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Beta-Feature/Beta.lua"))()
-end)
-
 -- Drag Function (PC + Mobile)
 local UserInputService = game:GetService("UserInputService")
 local dragging, dragStart, startPos
