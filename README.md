@@ -7,3 +7,9 @@ Created Loadstring But Not Mine.
 Yeah You Can Preview!
 
 *I'm So Lazy To Put The Name Script :v
+
+# Loadstring This Script
+
+```bash
+https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Beta-Feature/ScriptNotMine.lua
+```
