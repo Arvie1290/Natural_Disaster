@@ -1,19 +1,16 @@
--- the website official by me
--- https://github.com/Arvie1290/Natural_Disaster/tree/main
-
--- ArvieHub
+-- ArvieHub But The Script Belongs To Someone Else
 local Players = game:GetService("Players")
 local CoreGui = game:GetService("CoreGui")
 local LocalPlayer = Players.LocalPlayer
 
 -- Anti double execute
-if CoreGui:FindFirstChild("ArvieHub_Gui") then
-CoreGui:FindFirstChild("ArvieHub_Gui"):Destroy()
+if CoreGui:FindFirstChild("ArvieHub.BTSBTSE_Gui") then
+CoreGui:FindFirstChild("ArvieHub.BTSBTSE_Gui"):Destroy()
 end
 
 -- GUI Utama
 local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Name = "ArvieHub_Gui"
+ScreenGui.Name = "ArvieHub.BTSBTSE_Gui"
 ScreenGui.Parent = CoreGui
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
@@ -30,7 +27,7 @@ local TitleBar = Instance.new("TextLabel")
 TitleBar.Size = UDim2.new(1, -30, 0, 30)
 TitleBar.Position = UDim2.new(0, 0, 0, 0)
 TitleBar.BackgroundColor3 = Color3.fromRGB(40, 0, 0)
-TitleBar.Text = "ArvieHub (V1.0)"
+TitleBar.Text = "ArvieHub But The Script Not Mine (V1.0)"
 TitleBar.TextColor3 = Color3.fromRGB(255, 0, 0)
 TitleBar.Font = Enum.Font.SourceSansBold
 TitleBar.TextSize = 18
@@ -127,12 +124,12 @@ end
 
 -- Daftar tombol
 local buttons = {
-{name = "Steal A Brainrot Modded Only (V0.8)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Steal-A-Brainrot-Modded-Only/SAB_Modded.lua"},
-{name = "Natural Disaster (V1.0)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Natural-Disaster/Natural_Disaster.lua"},
-{name = "Pull A Friend! (V0.9)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Pull-A-Friend!/World1.lua"},
-{name = "TP/Tween Gui (V1.0)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/TP_Tween_Gui/TP_Tween_Gui.lua"},
-{name = "Mouth YEET! (V0.5)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Mouth-YEET!/Mouth_YEET!.lua"},
-{name = "Currently Position Player (V1.0)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Currently-Position-Player/RPP.lua"},
+{name = "NullFire", url = "https://raw.githubusercontent.com/InfernusScripts/Null-Fire/main/Loader"},
+{name = "Cheat Hub", url = "https://rawscripts.net/raw/Universal-Script-Cheat-hub-21957"},
+{name = "Bring Parts", url = "https://rawscripts.net/raw/Universal-Script-Bring-Parts-27586"},
+{name = "Fake Wallhop", url = "https://rawscripts.net/raw/Universal-Script-Fake-WallHop-33268"},
+{name = "Nameless Admin", url = "https://rawscripts.net/raw/Universal-Script-Nameless-Admin-35212"},
+{name = "Fire Parts", url = "https://raw.githubusercontent.com/EnesXVC/FireParts/main/Script"},
 -- tambah lagi di sini
 }
 
