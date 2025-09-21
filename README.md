@@ -11,5 +11,5 @@ Yeah You Can Preview!
 # Loadstring This Script
 
 ```bash
-https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Beta-Feature/ScriptNotMine.lua
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Beta-Feature/ScriptNotMine.lua"))()
 ```
