@@ -5,4 +5,5 @@ Lazy To Copy Paste To Executor, And Im
 Created Loadstring But Not Mine.
 
 Yeah You Can Preview!
+
 *I'm So Lazy To Put The Name Script :v
