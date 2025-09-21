@@ -64,7 +64,7 @@ BetaBtn.Parent = MainFrame
 
 BetaBtn.MouseButton1Click:Connect(function()
 -- ganti URL ini sama file Beta Feature kamu
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Beta-Feature/Beta.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Beta-Feature/ScriptNotMine.lua"))()
 end)
 
 -- Drag Function (PC + Mobile)
