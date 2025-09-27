@@ -133,6 +133,7 @@ local buttons = {
 {name = "TP/Tween Gui (V1.0)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/TP_Tween_Gui/TP_Tween_Gui.lua"},
 {name = "Mouth YEET! (V0.5)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Mouth-YEET!/Mouth_YEET!.lua"},
 {name = "Currently Position Player (V1.0)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Currently-Position-Player/RPP.lua"},
+{name = " Infinite Giga Jump Troll Tower (V1.0)", url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Infinite-Giga-Jump-Troll-Tower/IGJTT.lua"
 -- tambah lagi di sini
 }
 
