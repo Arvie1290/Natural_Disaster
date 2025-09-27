@@ -113,7 +113,8 @@ local buttons = {
 {name = "Bring Parts", url = "https://rawscripts.net/raw/Universal-Script-Bring-Parts-27586"},
 {name = "Fake Wallhop", url = "https://rawscripts.net/raw/Universal-Script-Fake-WallHop-33268"},
 {name = "Nameless Admin", url = "https://rawscripts.net/raw/Universal-Script-Nameless-Admin-35212"},
-{name = "Fire Parts", url = "https://raw.githubusercontent.com/EnesXVC/FireParts/main/Script"},
+{name = "Fire Parts", url = "https://raw.githubusercontent.com/EnesXVC/FireParts/main/Script"}
+{name = "Infinite Yield", url = "https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"},
 -- tambah lagi di sini
 }
 
