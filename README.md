@@ -39,7 +39,7 @@ Me: Maybe it's easy to make? Because the script doesn't require much code, it's 
 
 [-- Mouth Yeet! --](https://github.com/Arvie1290/Natural_Disaster/blob/Mouth-YEET!)
 
-[-- Infinite Giga Jump Troll Tower --](https://github.com/Arvie1290/Natural_Disaster/tree/Infinite-Giga-Jump-Troll-Tower/IGJTT.lua)
+[-- Infinite Giga Jump Troll Tower --](https://github.com/Arvie1290/Natural_Disaster/tree/Infinite-Giga-Jump-Troll-Tower)
 
 For now. Other scripts are coming!
 # Loadstring To Connect My Script all!
