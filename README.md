@@ -12,7 +12,7 @@ Function Script :
 
 Here The Loadstring!
 ```bash
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Natural-Disaster/IGJTT.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Infinite-Giga-Jump-Troll-Tower/IGJTT.lua"))()
 ```
 
 [End]
