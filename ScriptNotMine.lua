@@ -130,11 +130,67 @@ else
     container = ButtonHolder
 end
 
--- Generate tombol
+-- Generate tombol dengan tombol salin & tooltip (final)
 for i, btnData in ipairs(buttons) do
-    local newBtn = createButton(btnData.name, function()
+    local btnFrame = Instance.new("Frame")
+    btnFrame.Size = UDim2.new(1, 0, 0, 30)
+    btnFrame.BackgroundTransparency = 1
+    btnFrame.Position = UDim2.new(0, 0, 0, (i-1) * 35)
+    btnFrame.Parent = container
+
+    -- Tombol utama (tetap)
+    local mainBtn = createButton(btnData.name, function()
         loadstring(game:HttpGet(btnData.url))()
     end)
-    newBtn.Position = UDim2.new(0, 0, 0, (i-1) * 35)
-    newBtn.Parent = container
+    mainBtn.Size = UDim2.new(0.7, 0, 1, 0) -- 70% lebar
+    mainBtn.Position = UDim2.new(0, 0, 0, 0)
+    mainBtn.Parent = btnFrame
+
+    -- Tombol Salin
+    local copyBtn = Instance.new("TextButton")
+    copyBtn.Size = UDim2.new(0.3, 0, 1, 0) -- 30% lebar
+    copyBtn.Position = UDim2.new(0.7, 0, 0, 0)
+    copyBtn.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+    copyBtn.TextColor3 = Color3.fromRGB(255, 255, 0)
+    copyBtn.Font = Enum.Font.SourceSans
+    copyBtn.TextSize = 16
+    copyBtn.Text = "Copy"
+    copyBtn.AutoButtonColor = true
+    copyBtn.Parent = btnFrame
+
+    -- Tooltip "Copied!" dengan fade
+    local tooltip = Instance.new("TextLabel")
+    tooltip.Size = UDim2.new(1, 0, 1, 0)
+    tooltip.Position = UDim2.new(0, 0, 0, 0)
+    tooltip.BackgroundTransparency = 0.7
+    tooltip.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    tooltip.TextColor3 = Color3.fromRGB(0, 255, 0)
+    tooltip.Font = Enum.Font.SourceSansBold
+    tooltip.TextSize = 16
+    tooltip.Text = "Copied!"
+    tooltip.Visible = false
+    tooltip.Parent = btnFrame
+
+    copyBtn.MouseButton1Click:Connect(function()
+        setclipboard('loadstring(game:HttpGet("'..btnData.url..'"))()')
+        tooltip.Visible = true
+        tooltip.TextTransparency = 1
+        tooltip.TextTransparency = 1
+        tooltip.BackgroundTransparency = 1
+        -- fade-in
+        for i = 1, 10 do
+            tooltip.TextTransparency = tooltip.TextTransparency - 0.1
+            tooltip.BackgroundTransparency = tooltip.BackgroundTransparency - 0.07
+            wait(0.03)
+        end
+        -- delay sebelum fade-out
+        delay(1.5, function()
+            for i = 1, 10 do
+                tooltip.TextTransparency = tooltip.TextTransparency + 0.1
+                tooltip.BackgroundTransparency = tooltip.BackgroundTransparency + 0.07
+                wait(0.03)
+            end
+            tooltip.Visible = false
+        end)
+    end)
 end
