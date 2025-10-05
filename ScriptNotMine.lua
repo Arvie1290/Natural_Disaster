@@ -114,6 +114,7 @@ local buttons = {
     {name = "Nameless Admin", url = "https://rawscripts.net/raw/Universal-Script-Nameless-Admin-35212"},
     {name = "Fire Parts", url = "https://raw.githubusercontent.com/EnesXVC/FireParts/main/Script"},
     {name = "Infinite Yield", url = "https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"},
+    {name = "Sander X", url = "https://raw.githubusercontent.com/kigredns/SanderXV4.2.2/refs/heads/main/NormalSS.lua"},
 }
 
 -- Scroll mode jika lebih dari 7 button
