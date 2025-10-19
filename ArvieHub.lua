@@ -291,7 +291,7 @@ local scripts = {
     },
 	{
         name = "[New] Funk Tower",
-        url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Funk-Tower/FT.lua"
+        url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Funk-Tower/FT.lua",
 		gamelink = "https://www.roblox.com/games/96963101162715/",
         namegame = "Funk Tower",
         description = "This Script Have : \n - Get All Tools And Mod \n - TP To Lobby \n - TP To Winning Place \n - Drop All Tools \n - Drop You Use Tools \n - Troll Part \n \n Unfinished \n Troll Part \n Version This Script : V0.5 \n Created By : Script_Test1290 & 12dyydu12",
