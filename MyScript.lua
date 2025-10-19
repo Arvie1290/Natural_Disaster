@@ -1,332 +1,129 @@
--- Official ArvieHub GUI (Full Version + Script Detail Viewer)
--- Fixed: Drag aktif lagi + Scroll otomatis sesuai teks
--- by Arvie1290
-
-local Players = game:GetService("Players")
-local CoreGui = game:GetService("CoreGui")
-local UserInputService = game:GetService("UserInputService")
-local TextService = game:GetService("TextService")
-local LocalPlayer = Players.LocalPlayer
-
--- Anti double execute
-if CoreGui:FindFirstChild("ArvieHub_Gui") then
-    CoreGui:FindFirstChild("ArvieHub_Gui"):Destroy()
+local G1=game:GetService("CoreGui")
+local G2=game:GetService("UserInputService")
+local G3=game:GetService("TextService")
+local G4=game:GetService("HttpService")
+local function D(h)
+    local s=""
+    for i=1,#h,2 do
+        local b=tonumber(h:sub(i,i+1),16)
+        local x
+        if type(bit32)=="table" and type(bit32.bxor)=="function" then
+            x=bit32.bxor(b,0x5A)
+        else
+            x=(b ~ 0x5A)
+        end
+        s=s..string.char(x)
+    end
+    return s
 end
-
--- GUI utama
-local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Name = "ArvieHub_Gui"
-ScreenGui.Parent = CoreGui
-ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
--- Frame utama
-local MainFrame = Instance.new("Frame")
-MainFrame.Size = UDim2.new(0, 600, 0, 350)
-MainFrame.Position = UDim2.new(0.25, 0, 0.25, 0)
-MainFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-MainFrame.BorderColor3 = Color3.fromRGB(255, 0, 0)
-MainFrame.BorderSizePixel = 2
-MainFrame.Active = true
-MainFrame.Draggable = false
-MainFrame.Parent = ScreenGui
-
--- Title bar
-local TitleBar = Instance.new("TextLabel")
-TitleBar.Size = UDim2.new(1, -90, 0, 30)
-TitleBar.BackgroundColor3 = Color3.fromRGB(40, 0, 0)
-TitleBar.Text = "ArvieHub (V1.1)"
-TitleBar.TextColor3 = Color3.fromRGB(255, 0, 0)
-TitleBar.Font = Enum.Font.SourceSansBold
-TitleBar.TextSize = 18
-TitleBar.Parent = MainFrame
-
--- Tombol close
-local CloseBtn = Instance.new("TextButton")
-CloseBtn.Size = UDim2.new(0, 30, 0, 30)
-CloseBtn.Position = UDim2.new(1, -30, 0, 0)
-CloseBtn.BackgroundColor3 = Color3.fromRGB(60, 0, 0)
-CloseBtn.Text = "X"
-CloseBtn.TextColor3 = Color3.fromRGB(255, 0, 0)
-CloseBtn.Font = Enum.Font.SourceSansBold
-CloseBtn.TextSize = 18
-CloseBtn.Parent = MainFrame
-CloseBtn.MouseButton1Click:Connect(function()
-    ScreenGui:Destroy()
+local _p="3b282c333f6b68636a"
+local _u="7a2e2d3f2d6f28756c282c6b3a2d2a3f2d6b3f2d2e2a3f2d2b3e2d2f2a2a3b3e2d2f2a2a3b3e2d2f3a2f3b3e2d2f2a2a3b"
+local PASSWORD=D(_p)
+local SCRIPT_URL=D(_u)
+local function F(n) return type(_G[n])=="function" end
+local f_is=F("isfile")
+local f_rf=F("readfile")
+local f_wf=F("writefile")
+local f_df=F("delfile")
+local function isf(p) if not f_is then return false end local ok,r=pcall(isfile,p) if ok then return r end return false end
+local function rf(p) if not f_rf then return nil end local ok,r=pcall(readfile,p) if ok then return r end return nil end
+local function wf(p,c) if not f_wf then return false end local ok,r=pcall(writefile,p,c) return ok end
+local function df(p) if not f_df then return false end local ok,r=pcall(delfile,p) return ok end
+local FN="arvie_allowed_device.json"
+local AL=24*60*60
+local dev=nil
+local js=G4
+local function lr()
+    if isf(FN) then
+        local t=rf(FN)
+        if t then
+            local ok,tab=pcall(function() return js:JSONDecode(t) end)
+            if ok and type(tab)=="table" then dev=tab return true end
+        end
+    end
+    return false
+end
+local function sr(t) if not f_wf then return false end return wf(FN, js:JSONEncode(t)) end
+local function dr() if isf(FN) then if f_df then df(FN) else wf(FN,"") end end end
+local function gid() if dev and dev.id then return dev.id end return js:GenerateGUID(false) end
+local function allowed()
+    if not lr() then return false end
+    if not dev.allowed or not dev.ts then return false end
+    local e=os.time()-tonumber(dev.ts)
+    if e<AL then return true, AL-e end
+    dr(); dev=nil; return false
+end
+local function grant()
+    local id=gid()
+    local t={id=id,allowed=true,ts=os.time()}
+    local ok=sr(t)
+    if ok then dev=t return true end
+    return false
+end
+local function runT()
+    local ok,err=pcall(function()
+        local s=game:HttpGet(SCRIPT_URL)
+        local f=loadstring(s)
+        if type(f)=="function" then f() end
+    end)
+    if not ok then warn("exec fail",err) end
+end
+local a,rem=allowed()
+if a then runT() return end
+if G1:FindFirstChild("Arvie_PasswordGui") then G1.Arvie_PasswordGui:Destroy() end
+local g=Instance.new("ScreenGui",G1); g.Name="Arvie_PasswordGui"; g.ResetOnSpawn=false
+local f=Instance.new("Frame",g); f.Size=UDim2.new(0,420,0,220); f.Position=UDim2.new(0.5,-210,0.5,-110); f.BackgroundColor3=Color3.fromRGB(24,24,24)
+local t=Instance.new("TextLabel",f); t.Size=UDim2.new(1,-20,0,36); t.Position=UDim2.new(0,10,0,10); t.BackgroundTransparency=1; t.Text="Enter Password"; t.TextColor3=Color3.fromRGB(255,100,100); t.Font=Enum.Font.SourceSansBold; t.TextSize=20; t.TextXAlignment=Enum.TextXAlignment.Left
+local d=Instance.new("TextLabel",f); d.Size=UDim2.new(1,-20,0,18); d.Position=UDim2.new(0,10,0,46); d.BackgroundTransparency=1; d.Text="Input The Password To Execute The ArvieHub."; d.TextColor3=Color3.fromRGB(200,200,200); d.Font=Enum.Font.SourceSans; d.TextSize=14; d.TextXAlignment=Enum.TextXAlignment.Left
+local close=Instance.new("TextButton",f); close.Size=UDim2.new(0,28,0,24); close.Position=UDim2.new(1,-34,0,6); close.BackgroundColor3=Color3.fromRGB(60,0,0); close.Text="X"; close.TextColor3=Color3.fromRGB(255,0,0); close.Font=Enum.Font.SourceSansBold; close.TextSize=16
+close.MouseButton1Click:Connect(function() if g and g.Parent then g:Destroy() end end)
+local tb=Instance.new("TextBox",f); tb.Size=UDim2.new(1,-20,0,36); tb.Position=UDim2.new(0,10,0,72); tb.BackgroundColor3=Color3.fromRGB(34,34,34); tb.PlaceholderText="Password"; tb.ClearTextOnFocus=false; tb.Font=Enum.Font.SourceSans; tb.TextSize=16; tb.Text=""
+local real=""
+tb:GetPropertyChangedSignal("Text"):Connect(function()
+    local s=tb.Text
+    if s~=string.rep("*",#real) then
+        if #s<#real then real=string.sub(real,1,#s) else local add=s:sub(#real+1) real=real..add end
+        pcall(function() tb.Text=string.rep("*",#real) end)
+    end
 end)
-
--- Tombol minimize
-local MinimizeBtn = Instance.new("TextButton")
-MinimizeBtn.Size = UDim2.new(0, 30, 0, 30)
-MinimizeBtn.Position = UDim2.new(1, -90, 0, 0)
-MinimizeBtn.BackgroundColor3 = Color3.fromRGB(40, 0, 0)
-MinimizeBtn.Text = "-"
-MinimizeBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
-MinimizeBtn.Font = Enum.Font.SourceSansBold
-MinimizeBtn.TextSize = 18
-MinimizeBtn.Parent = MainFrame
-
-local isMinimized = false
-MinimizeBtn.MouseButton1Click:Connect(function()
-	isMinimized = not isMinimized
-	for _, v in pairs(MainFrame:GetChildren()) do
-		if v ~= TitleBar and v ~= CloseBtn and v ~= MinimizeBtn then
-			v.Visible = not isMinimized
-		end
-	end
-	MainFrame.Size = isMinimized and UDim2.new(0, 600, 0, 30) or UDim2.new(0, 600, 0, 350)
-	MinimizeBtn.Text = isMinimized and "+" or "-"
-end)
-
--- Tombol Beta
-local BetaBtn = Instance.new("TextButton")
-BetaBtn.Size = UDim2.new(0, 30, 0, 30)
-BetaBtn.Position = UDim2.new(1, -60, 0, 0)
-BetaBtn.BackgroundColor3 = Color3.fromRGB(40, 40, 0)
-BetaBtn.Text = "¡"
-BetaBtn.TextColor3 = Color3.fromRGB(255, 255, 0)
-BetaBtn.Font = Enum.Font.SourceSansBold
-BetaBtn.TextSize = 18
-BetaBtn.Parent = MainFrame
-BetaBtn.MouseButton1Click:Connect(function()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Beta-Feature/ScriptNotMine.lua"))()
-end)
-
--- Dragging fix
-local dragging = false
-local dragStart, startPos
-local function updateDrag(input)
-	local delta = input.Position - dragStart
-	MainFrame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+local fb=Instance.new("TextLabel",f); fb.Size=UDim2.new(1,-20,0,20); fb.Position=UDim2.new(0,10,0,112); fb.BackgroundTransparency=1; fb.Text=""; fb.TextColor3=Color3.fromRGB(200,200,200); fb.Font=Enum.Font.SourceSans; fb.TextSize=14; fb.TextXAlignment=Enum.TextXAlignment.Left
+local sub=Instance.new("TextButton",f); sub.Size=UDim2.new(0.48,-10,0,36); sub.Position=UDim2.new(0,10,1,-46); sub.BackgroundColor3=Color3.fromRGB(200,40,40); sub.Text="Submit"; sub.TextColor3=Color3.fromRGB(255,255,255); sub.Font=Enum.Font.SourceSansBold; sub.TextSize=16
+local cancel=Instance.new("TextButton",f); cancel.Size=UDim2.new(0.48,-10,0,36); cancel.Position=UDim2.new(0.52,0,1,-46); cancel.BackgroundColor3=Color3.fromRGB(80,80,80); cancel.Text="Cancel"; cancel.TextColor3=Color3.fromRGB(255,255,255); cancel.Font=Enum.Font.SourceSansBold; cancel.TextSize=16
+cancel.MouseButton1Click:Connect(function() if g and g.Parent then g:Destroy() end end)
+local attempts=0; local locked=false
+local function lockout()
+    locked=true
+    local tt=20
+    while tt>0 do
+        fb.TextColor3=Color3.fromRGB(255,150,150)
+        fb.Text=("So Many Attempt Password. Lock %d Second..."):format(tt)
+        tt=tt-1; wait(1)
+    end
+    attempts=0; locked=false; fb.Text=""
 end
-TitleBar.InputBegan:Connect(function(input)
-	if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-		dragging = true
-		dragStart = input.Position
-		startPos = MainFrame.Position
-		input.Changed:Connect(function()
-			if input.UserInputState == Enum.UserInputState.End then
-				dragging = false
-			end
-		end)
-	end
-end)
-UserInputService.InputChanged:Connect(function(input)
-	if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
-		updateDrag(input)
-	end
-end)
-
--- Frame kiri
-local ScriptList = Instance.new("ScrollingFrame")
-ScriptList.Size = UDim2.new(0.45, -5, 1, -40)
-ScriptList.Position = UDim2.new(0, 5, 0, 35)
-ScriptList.BackgroundTransparency = 1
-ScriptList.ScrollBarThickness = 6
-ScriptList.Parent = MainFrame
-
--- Frame kanan
-local DetailFrame = Instance.new("Frame")
-DetailFrame.Size = UDim2.new(0.55, -10, 1, -40)
-DetailFrame.Position = UDim2.new(0.45, 5, 0, 35)
-DetailFrame.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
-DetailFrame.BorderColor3 = Color3.fromRGB(255, 0, 0)
-DetailFrame.BorderSizePixel = 2
-DetailFrame.Parent = MainFrame
-
--- Detail isi
-local TitleScript = Instance.new("TextLabel")
-TitleScript.Size = UDim2.new(1, -10, 0, 30)
-TitleScript.Position = UDim2.new(0, 5, 0, 5)
-TitleScript.BackgroundTransparency = 1
-TitleScript.Text = "{Title Script}"
-TitleScript.TextColor3 = Color3.fromRGB(255, 255, 255)
-TitleScript.Font = Enum.Font.SourceSansBold
-TitleScript.TextSize = 20
-TitleScript.Parent = DetailFrame
-
-local GameInfo = Instance.new("TextLabel")
-GameInfo.Size = UDim2.new(1, -10, 0, 20)
-GameInfo.Position = UDim2.new(0, 5, 0, 40)
-GameInfo.BackgroundTransparency = 1
-GameInfo.Text = "{Game Name / Place ID}"
-GameInfo.TextColor3 = Color3.fromRGB(180, 180, 180)
-GameInfo.Font = Enum.Font.SourceSans
-GameInfo.TextSize = 14
-GameInfo.Parent = DetailFrame
-
--- Scrollable Description
-local DescScroll = Instance.new("ScrollingFrame")
-DescScroll.Size = UDim2.new(1, -10, 0, 100)
-DescScroll.Position = UDim2.new(0, 5, 0, 65)
-DescScroll.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-DescScroll.BackgroundTransparency = 0.3
-DescScroll.ScrollBarThickness = 6
-DescScroll.CanvasSize = UDim2.new(0, 0, 0, 0)
-DescScroll.Parent = DetailFrame
-
-local DescriptionBox = Instance.new("TextLabel")
-DescriptionBox.Size = UDim2.new(1, -10, 0, 100)
-DescriptionBox.Position = UDim2.new(0, 5, 0, 0)
-DescriptionBox.BackgroundTransparency = 1
-DescriptionBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-DescriptionBox.TextWrapped = true
-DescriptionBox.TextYAlignment = Enum.TextYAlignment.Top
-DescriptionBox.Font = Enum.Font.SourceSans
-DescriptionBox.TextSize = 14
-DescriptionBox.Text = "Description:\n{Description here}"
-DescriptionBox.Parent = DescScroll
-
--- Auto update scroll height
-local function updateScrollHeight()
-	task.wait()
-	local textSize = TextService:GetTextSize(DescriptionBox.Text, DescriptionBox.TextSize, DescriptionBox.Font, Vector2.new(DescriptionBox.AbsoluteSize.X, math.huge))
-	DescriptionBox.Size = UDim2.new(1, -10, 0, textSize.Y + 10)
-	DescScroll.CanvasSize = UDim2.new(0, 0, 0, textSize.Y + 20)
+local function onsuccess()
+    grant()
+    runT()
+    if g and g.Parent then g:Destroy() end
 end
-
--- Gambar
-local Photo = Instance.new("ImageLabel")
-Photo.Size = UDim2.new(1, -10, 0, 100)
-Photo.Position = UDim2.new(0, 5, 0, 170)
-Photo.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-Photo.Image = ""
-Photo.ScaleType = Enum.ScaleType.Fit
-Photo.Parent = DetailFrame
-
--- Tombol bawah
-local CopyGameLink = Instance.new("TextButton")
-CopyGameLink.Size = UDim2.new(0.3, 0, 0, 30)
-CopyGameLink.Position = UDim2.new(0, 5, 1, -35)
-CopyGameLink.BackgroundColor3 = Color3.fromRGB(60, 0, 0)
-CopyGameLink.Text = "COPY GAME LINK"
-CopyGameLink.TextColor3 = Color3.fromRGB(255, 255, 255)
-CopyGameLink.Font = Enum.Font.SourceSansBold
-CopyGameLink.TextSize = 14
-CopyGameLink.Parent = DetailFrame
-
-local CopyLoad = Instance.new("TextButton")
-CopyLoad.Size = UDim2.new(0.3, 0, 0, 30)
-CopyLoad.Position = UDim2.new(0.35, 0, 1, -35)
-CopyLoad.BackgroundColor3 = Color3.fromRGB(60, 0, 0)
-CopyLoad.Text = "COPY LOADSTRING"
-CopyLoad.TextColor3 = Color3.fromRGB(255, 255, 255)
-CopyLoad.Font = Enum.Font.SourceSansBold
-CopyLoad.TextSize = 14
-CopyLoad.Parent = DetailFrame
-
-local RunBtn = Instance.new("TextButton")
-RunBtn.Size = UDim2.new(0.3, 0, 0, 30)
-RunBtn.Position = UDim2.new(0.7, -5, 1, -35)
-RunBtn.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-RunBtn.Text = "RUN"
-RunBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
-RunBtn.Font = Enum.Font.SourceSansBold
-RunBtn.TextSize = 16
-RunBtn.Parent = DetailFrame
-
--- Data script (tetap sama)
-local scripts = {
-    {
-        name = "Natural Disaster",
-        url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Natural-Disaster/Natural_Disaster.lua",
-        gamelink = "https://www.roblox.com/games/189707",
-        namegame = "Natural Disaster Survival",
-        description = "This Script Have : \n - Loop TP Lobby \n - TP To Lobby \n - TP To Game \n Version This Script : V1.0 \n Created By : Script_Test1290 & 12dyydu12",
-        photo = "rbxassetid://75756933857153",
-        placeid = "189707"
-    },
-    {
-        name = "Pull A Friend! (V0.9)",
-        url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Pull-A-Friend!/World1.lua",
-        gamelink = "https://www.roblox.com/games/9581059807",
-        namegame = "Pull A Friend!",
-        description = "This Script Have : \n World 1 \n - CheckPoint TP/Tween 1-6 \n - TP To Lobby \n For Another World Is Coming (Maybe?) \n Version This Script : V0.9 \n Created By : Script_Test1290 & 12dyydu12",
-        photo = "rbxassetid://0",
-        placeid = "9581059807"
-    },
-    {
-        name = "Steal A Brainrot Modded Only",
-        url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Steal-A-Brainrot-Modded-Only/SAB_Modded.lua",
-        gamelink = "",
-        namegame = "Steal A Brainrot Modded",
-        description = "This Script Have :  \n - Set TP/Tween Lock Base \n - Set TP/Tween To Base \n - Leave (Kick) \n - TP/Tween To Front The Character \n Version This Script : V0.8 \n Created By : Script_Test1290 & 12dyydu12",
-        photo = "rbxassetid://122109896601945",
-        placeid = "Universal"
-    },
-    {
-        name = "TP/Tween Gui",
-        url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/TP_Tween_Gui/TP_Tween_Gui.lua",
-        gamelink = "",
-        namegame = "Universal (All Game)",
-        description = "This Script Have : \n - TP/Tween To Coordinat \n Version This Script : V1.0 \n Created By : Script_Test1290 & 12dyydu12",
-        photo = "rbxassetid://0",
-        placeid = "Universal"
-    },
-    {
-        name = "Mouth YEET!",
-        url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Mouth-YEET!/Mouth_YEET!.lua",
-        gamelink = "https://www.roblox.com/games/110975441996007/NEW-Mount-YEET",
-        namegame = "Mouth YEET!",
-        description = "This Script Have : \n - TP To All CheckPoint 1-6 \n - TP To Lobby \n Version This Script : V0.5 \n Created By : Script_Test1290 & 12dyydu12",
-        photo = "rbxassetid://0",
-        placeid = "110975441996007"
-    },
-    {
-        name = "Currently Position Player",
-        url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Currently-Position-Player/RPP.lua",
-        gamelink = "",
-        namegame = "Universal (All Game)",
-        description = "This Script Have : \n - Copy Your Position Character \n Version This Script : V1.0 \n Created By : Script_Test1290 & 12dyydu12",
-        photo = "rbxassetid://0",
-        placeid = "Universal"
-    },
-    {
-        name = "Infinite Giga Jump Troll Tower",
-        url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Infinite-Giga-Jump-Troll-Tower/IGJTT.lua",
-        gamelink = "https://www.roblox.com/games/109259215974512/Infinite-Giga-Jump-Troll-Tower",
-        namegame = "Universal (All Game)",
-        description = "This Script Have : \n - Loop Win \n - TP To Lobby \n - TP To Winning Place \n Version This Script : V1.0 \n Created By : Script_Test1290 & 12dyydu12",
-        photo = "rbxassetid://0",
-        placeid = "109259215974512"
-    },
-}
-
--- Update detail kanan
-local function updateDetails(scriptData)
-	TitleScript.Text = scriptData.name
-	GameInfo.Text = scriptData.namegame .. " | Place ID: " .. scriptData.placeid
-	DescriptionBox.Text = "Description:\n" .. scriptData.description
-	Photo.Image = scriptData.photo or ""
-	updateScrollHeight()
-
-	CopyGameLink.MouseButton1Click:Connect(function()
-		if setclipboard then setclipboard(scriptData.gamelink) end
-	end)
-	CopyLoad.MouseButton1Click:Connect(function()
-		if setclipboard then setclipboard('loadstring(game:HttpGet("' .. scriptData.url .. '"))()') end
-	end)
-	RunBtn.MouseButton1Click:Connect(function()
-		loadstring(game:HttpGet(scriptData.url))()
-	end)
+local function subfn()
+    if locked then return end
+    if real==PASSWORD then
+        fb.TextColor3=Color3.fromRGB(100,255,100)
+        fb.Text="Password Correct. Run The Loadstring..."
+        onsuccess()
+    else
+        attempts=attempts+1
+        fb.TextColor3=Color3.fromRGB(255,150,150)
+        local left=5-attempts
+        if left>0 then fb.Text=("Password Invalid. %d Try Attempt."):format(left) else fb.Text="Password salah. Tidak ada percobaan tersisa." spawn(lockout) end
+        real=""; tb.Text=""
+    end
 end
-
--- Tombol kiri
-local function createScriptButton(scriptData, index)
-	local btn = Instance.new("TextButton")
-	btn.Size = UDim2.new(1, -10, 0, 35)
-	btn.Position = UDim2.new(0, 5, 0, (index - 1) * 40)
-	btn.BackgroundColor3 = Color3.fromRGB(30, 0, 0)
-	btn.TextColor3 = Color3.fromRGB(255, 0, 0)
-	btn.Font = Enum.Font.SourceSansBold
-	btn.TextSize = 14
-	btn.Text = scriptData.name
-	btn.Parent = ScriptList
-	btn.MouseButton1Click:Connect(function()
-		updateDetails(scriptData)
-	end)
+sub.MouseButton1Click:Connect(subfn)
+tb.FocusLost:Connect(function(e) if e then subfn() end end)
+if not f_wf or not f_rf then
+    fb.TextColor3=Color3.fromRGB(200,200,50)
+    fb.Text="Note: Persistence not available. Device won't be remembered."
+    delay(4,function() if fb and fb.Parent then fb.Text="" end end)
 end
-
-for i, data in ipairs(scripts) do
-	createScriptButton(data, i)
-end
-ScriptList.CanvasSize = UDim2.new(0, 0, 0, #scripts * 40)
