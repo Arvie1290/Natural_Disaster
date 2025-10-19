@@ -45,7 +45,8 @@ For now. Other scripts are coming!
 # Loadstring To Connect My Script all!
 
 ```
-https://github.com/
+https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/refs/heads/main/MyScript.lua
+-- website offcial : 
 ```
 > (If this Loadstring Don't Run, The Script Loadstring Is A Error/Bug, Pls Feedback Me Ok?)
 
