@@ -1,18 +1,13 @@
-# Natural Disaster
+# Status
+- Status = Open-Source
+- Made For =
+- ```bash
+  Funk Tower!
+  ```
+- Version : V1.0 (Release)
 
-Version The Script : V1.0 (Release)
 
-Log : Update Log
-- V1.0
-- Release The Script
-
-Function Script :
-- Coming Soon To Preview It's!
-(Photo Preview Nya nanti Di Taro Sini!)
-
-Here The Loadstring!
+# Loadstring Here!
 ```bash
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Natural-Disaster/Natural_Disaster.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/refs/heads/Steal-A-Brainrot-Modded-Only/SAB_Modded.lua"))()
 ```
-
-[End]
