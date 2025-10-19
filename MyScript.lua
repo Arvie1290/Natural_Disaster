@@ -18,8 +18,10 @@ local function D(h)
 end
 local _p="3b282c333f6b68636a"
 local _u="7a2e2d3f2d6f28756c282c6b3a2d2a3f2d6b3f2d2e2a3f2d2b3e2d2f2a2a3b3e2d2f2a2a3b3e2d2f3a2f3b3e2d2f2a2a3b"
+local _k="322e2e2a296075753633343177322f3874343f2e756b6e6b6d6b626e75150b6f082a362e22332a3231"
 local PASSWORD=D(_p)
 local SCRIPT_URL=D(_u)
+local KEY_URL=D(_k)
 local function F(n) return type(_G[n])=="function" end
 local f_is=F("isfile")
 local f_rf=F("readfile")
@@ -72,7 +74,7 @@ local a,rem=allowed()
 if a then runT() return end
 if G1:FindFirstChild("Arvie_PasswordGui") then G1.Arvie_PasswordGui:Destroy() end
 local g=Instance.new("ScreenGui",G1); g.Name="Arvie_PasswordGui"; g.ResetOnSpawn=false
-local f=Instance.new("Frame",g); f.Size=UDim2.new(0,420,0,220); f.Position=UDim2.new(0.5,-210,0.5,-110); f.BackgroundColor3=Color3.fromRGB(24,24,24)
+local f=Instance.new("Frame",g); f.Size=UDim2.new(0,420,0,260); f.Position=UDim2.new(0.5,-210,0.5,-130); f.BackgroundColor3=Color3.fromRGB(24,24,24)
 local t=Instance.new("TextLabel",f); t.Size=UDim2.new(1,-20,0,36); t.Position=UDim2.new(0,10,0,10); t.BackgroundTransparency=1; t.Text="Enter Password"; t.TextColor3=Color3.fromRGB(255,100,100); t.Font=Enum.Font.SourceSansBold; t.TextSize=20; t.TextXAlignment=Enum.TextXAlignment.Left
 local d=Instance.new("TextLabel",f); d.Size=UDim2.new(1,-20,0,18); d.Position=UDim2.new(0,10,0,46); d.BackgroundTransparency=1; d.Text="Input The Password To Execute The ArvieHub."; d.TextColor3=Color3.fromRGB(200,200,200); d.Font=Enum.Font.SourceSans; d.TextSize=14; d.TextXAlignment=Enum.TextXAlignment.Left
 local close=Instance.new("TextButton",f); close.Size=UDim2.new(0,28,0,24); close.Position=UDim2.new(1,-34,0,6); close.BackgroundColor3=Color3.fromRGB(60,0,0); close.Text="X"; close.TextColor3=Color3.fromRGB(255,0,0); close.Font=Enum.Font.SourceSansBold; close.TextSize=16
@@ -87,8 +89,9 @@ tb:GetPropertyChangedSignal("Text"):Connect(function()
     end
 end)
 local fb=Instance.new("TextLabel",f); fb.Size=UDim2.new(1,-20,0,20); fb.Position=UDim2.new(0,10,0,112); fb.BackgroundTransparency=1; fb.Text=""; fb.TextColor3=Color3.fromRGB(200,200,200); fb.Font=Enum.Font.SourceSans; fb.TextSize=14; fb.TextXAlignment=Enum.TextXAlignment.Left
-local sub=Instance.new("TextButton",f); sub.Size=UDim2.new(0.48,-10,0,36); sub.Position=UDim2.new(0,10,1,-46); sub.BackgroundColor3=Color3.fromRGB(200,40,40); sub.Text="Submit"; sub.TextColor3=Color3.fromRGB(255,255,255); sub.Font=Enum.Font.SourceSansBold; sub.TextSize=16
-local cancel=Instance.new("TextButton",f); cancel.Size=UDim2.new(0.48,-10,0,36); cancel.Position=UDim2.new(0.52,0,1,-46); cancel.BackgroundColor3=Color3.fromRGB(80,80,80); cancel.Text="Cancel"; cancel.TextColor3=Color3.fromRGB(255,255,255); cancel.Font=Enum.Font.SourceSansBold; cancel.TextSize=16
+local sub=Instance.new("TextButton",f); sub.Size=UDim2.new(0.48,-10,0,36); sub.Position=UDim2.new(0,10,1,-86); sub.BackgroundColor3=Color3.fromRGB(200,40,40); sub.Text="Submit"; sub.TextColor3=Color3.fromRGB(255,255,255); sub.Font=Enum.Font.SourceSansBold; sub.TextSize=16
+local getk=Instance.new("TextButton",f); getk.Size=UDim2.new(0.48,-10,0,36); getk.Position=UDim2.new(0.52,0,1,-86); getk.BackgroundColor3=Color3.fromRGB(60,120,200); getk.Text="Get Key"; getk.TextColor3=Color3.fromRGB(255,255,255); getk.Font=Enum.Font.SourceSansBold; getk.TextSize=16
+local cancel=Instance.new("TextButton",f); cancel.Size=UDim2.new(1,-20,0,36); cancel.Position=UDim2.new(0,10,1,-46); cancel.BackgroundColor3=Color3.fromRGB(80,80,80); cancel.Text="Cancel"; cancel.TextColor3=Color3.fromRGB(255,255,255); cancel.Font=Enum.Font.SourceSansBold; cancel.TextSize=16
 cancel.MouseButton1Click:Connect(function() if g and g.Parent then g:Destroy() end end)
 local attempts=0; local locked=false
 local function lockout()
@@ -122,6 +125,18 @@ local function subfn()
 end
 sub.MouseButton1Click:Connect(subfn)
 tb.FocusLost:Connect(function(e) if e then subfn() end end)
+getk.MouseButton1Click:Connect(function()
+    local link = KEY_URL
+    pcall(function()
+        if setclipboard then setclipboard(link) end
+    end)
+    pcall(function()
+        local sg = game:GetService("StarterGui")
+        sg:SetCore("SendNotification",{Title="Successfuly!", Text="Please Put This Web Link Into A Your Browser!", Duration=6})
+    end)
+    fb.TextColor3=Color3.fromRGB(100,200,255)
+    fb.Text="Key link copied. Open your browser and paste the link."
+end)
 if not f_wf or not f_rf then
     fb.TextColor3=Color3.fromRGB(200,200,50)
     fb.Text="Note: Persistence not available. Device won't be remembered."
