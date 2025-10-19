@@ -1,5 +1,5 @@
 -- Official ArvieHub GUI (Full Version + Script Detail Viewer)
--- Fixed: Drag aktif lagi + Scroll otomatis sesuai teks
+-- Fixed: Drag aktif lagi + Scroll otomatis sesuai teks + Fix RunBtn
 -- by Arvie1290
 
 local Players = game:GetService("Players")
@@ -291,24 +291,38 @@ local scripts = {
     },
 }
 
+-- Variabel untuk script terpilih
+local currentScriptData = nil
+
 -- Update detail kanan
 local function updateDetails(scriptData)
+	currentScriptData = scriptData
 	TitleScript.Text = scriptData.name
 	GameInfo.Text = scriptData.namegame .. " | Place ID: " .. scriptData.placeid
 	DescriptionBox.Text = "Description:\n" .. scriptData.description
 	Photo.Image = scriptData.photo or ""
 	updateScrollHeight()
 
+	-- Tombol copy tetap update tiap script
 	CopyGameLink.MouseButton1Click:Connect(function()
-		if setclipboard then setclipboard(scriptData.gamelink) end
+		if currentScriptData and setclipboard then
+			setclipboard(currentScriptData.gamelink)
+		end
 	end)
+
 	CopyLoad.MouseButton1Click:Connect(function()
-		if setclipboard then setclipboard('loadstring(game:HttpGet("' .. scriptData.url .. '"))()') end
-	end)
-	RunBtn.MouseButton1Click:Connect(function()
-		loadstring(game:HttpGet(scriptData.url))()
+		if currentScriptData and setclipboard then
+			setclipboard('loadstring(game:HttpGet("' .. currentScriptData.url .. '"))()')
+		end
 	end)
 end
+
+-- Tombol Run tetap di luar updateDetails
+RunBtn.MouseButton1Click:Connect(function()
+	if currentScriptData then
+		loadstring(game:HttpGet(currentScriptData.url))()
+	end
+end)
 
 -- Tombol kiri
 local function createScriptButton(scriptData, index)
