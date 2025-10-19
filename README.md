@@ -45,7 +45,7 @@ For now. Other scripts are coming!
 # Loadstring To Connect My Script all!
 
 ```
-https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/refs/heads/main/MyScript.lua
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/main/MyScript.lua"))()
 -- website offcial : https://github.com/Arvie1290/Natural_Disaster/tree/main
 ```
 > (If this Loadstring Don't Run, The Script Loadstring Is A Error/Bug, Pls Feedback Me Ok?)
