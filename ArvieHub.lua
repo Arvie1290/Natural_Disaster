@@ -265,7 +265,7 @@ local scripts = {
     {
         name = "Mouth YEET!",
         url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Mouth-YEET!/Mouth_YEET!.lua",
-        gamelink = "https://www.roblox.com/games/110975441996007/NEW-Mount-YEET",
+        gamelink = "https://www.roblox.com/games/110975441996007/",
         namegame = "Mouth YEET!",
         description = "This Script Have : \n - TP To All CheckPoint 1-6 \n - TP To Lobby \n Version This Script : V0.5 \n Created By : Script_Test1290 & 12dyydu12",
         photo = "rbxassetid://0",
@@ -283,11 +283,20 @@ local scripts = {
     {
         name = "Infinite Giga Jump Troll Tower",
         url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Infinite-Giga-Jump-Troll-Tower/IGJTT.lua",
-        gamelink = "https://www.roblox.com/games/109259215974512/Infinite-Giga-Jump-Troll-Tower",
+        gamelink = "https://www.roblox.com/games/109259215974512/",
         namegame = "Universal (All Game)",
         description = "This Script Have : \n - Loop Win \n - TP To Lobby \n - TP To Winning Place \n Version This Script : V1.0 \n Created By : Script_Test1290 & 12dyydu12",
         photo = "rbxassetid://0",
         placeid = "109259215974512"
+    },
+	{
+        name = "[New] Funk Tower",
+        url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Funk-Tower/FT.lua"
+		gamelink = "https://www.roblox.com/games/96963101162715/",
+        namegame = "Funk Tower",
+        description = "This Script Have : \n - Get All Tools And Mod \n - TP To Lobby \n - TP To Winning Place \n - Drop All Tools \n - Drop You Use Tools \n - Troll Part \n \n Unfinished \n Troll Part \n Version This Script : V0.5 \n Created By : Script_Test1290 & 12dyydu12",
+        photo = "rbxassetid://0",
+        placeid = "96963101162715"
     },
 }
 
