@@ -117,6 +117,7 @@ local buttons = {
     {name = "Sander X", url = "https://raw.githubusercontent.com/kigredns/SanderXV4.2.2/refs/heads/main/NormalSS.lua"},
     {name = "Invisible", url = "https://pastebin.com/raw/3Rnd9rHf"},
     {name = "Pizza At The Work!", url = "https://raw.githubusercontent.com/Hm5011/hussain/refs/heads/main/Work%20at%20a%20pizza%20place"},
+    {name = "H3X Script", url = "https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/loader.lua"},
     }
 
 -- Scroll mode jika lebih dari 7 button
