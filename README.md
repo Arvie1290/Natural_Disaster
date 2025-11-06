@@ -41,8 +41,7 @@ Me: Maybe it's easy to make? Because the script doesn't require much code, it's 
 
 [-- Infinite Giga Jump Troll Tower --](https://github.com/Arvie1290/Natural_Disaster/tree/Infinite-Giga-Jump-Troll-Tower)
 
-[-- Funk Tower --]
-(https://github.com/Arvie1290/Natural_Disaster/tree/Funk-Tower)
+[-- Funk Tower --](https://github.com/Arvie1290/Natural_Disaster/tree/Funk-Tower)
 
 For now. Other scripts are coming!
 # Loadstring To Connect My Script all!
