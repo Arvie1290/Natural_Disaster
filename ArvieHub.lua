@@ -277,7 +277,7 @@ local scripts = {
         placeid = "109259215974512"      
     },      
 	{      
-        name = "[New] Funk Tower",      
+        name = "Funk Tower",      
         url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/Funk-Tower/FT.lua",      
 		gamelink = "https://www.roblox.com/games/96963101162715/",      
         namegame = "Funk Tower",      
@@ -285,6 +285,15 @@ local scripts = {
         photo = "rbxassetid://0",      
         placeid = "96963101162715"      
     },      
+	{
+		name = "[New!] Evade",
+		url = "https://raw.githubusercontent.com/Arvie1290/Natural_Disaster/refs/heads/evade/evadegui.lua",
+		gamelink = "https://www.roblox.com/games/9872472334",
+		namegame = "Evade"
+		description = "This Script Have : \n - Auto Jump Toggle \n - No Gravity Toggle \n - Lag Switch Toggle \n - Part Float Toggle \n \n Version This Script : V0.9 \n Created By : @Script_Test1290",
+		photo = "rbxassetid://11425766633",
+		placeid = "9872472334"
+	}
 }      
   
 -- Variabel debounce  
