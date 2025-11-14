@@ -43,6 +43,8 @@ Me: Maybe it's easy to make? Because the script doesn't require much code, it's 
 
 [-- Funk Tower --](https://github.com/Arvie1290/Natural_Disaster/tree/Funk-Tower)
 
+[-- Evade --](https://github.com/Arvie1290/Natural_Disaster/tree/evade)
+
 For now. Other scripts are coming!
 # Loadstring To Connect My Script all!
 
