@@ -292,7 +292,7 @@ local scripts = {
 		namegame = "Evade (Can Universal)",
 		description = "This Script Have : \n - Auto Jump Toggle \n - No Gravity Toggle \n - Lag Switch Toggle \n - Part Float Toggle \n \n Version This Script : V0.9 \n Created By : @Script_Test1290",
 		photo = "rbxassetid://11425766633",
-		placeid = "9872472334",
+		placeid = "9872472334"
 	},
 }      
   
