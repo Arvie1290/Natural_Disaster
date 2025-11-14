@@ -2,7 +2,7 @@
 - Status = Open-Source
 - Made For =
 - ```bash
-  Universal (All Game)
+  Evade (this script can universal)
   ```
 - Version : V1.0 (Release)
 
