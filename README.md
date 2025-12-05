@@ -12,7 +12,7 @@ I'm 12 years old! (2025)'
 # Question
 🗣️: Why can you write scripts?
 
-Me: Because I asked ChatGPT or Claude for help to solve my script problems. I just gave the two AI commands, and boom, my script was created (not entirely AI-made scripts).
+Me: Because I asked ChatGPT/Claude/Deepseek for help to solve my script problems. I just gave the two AI commands, and boom, my script was created (not entirely AI-made scripts).
 
 
 🗣️: Why are you interested in scripting?
