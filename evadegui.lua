@@ -1,4 +1,3 @@
--- Executor-friendly LocalScript (FINAL FIXED)
 local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoid = character:WaitForChild("Humanoid")
@@ -29,8 +28,8 @@ screenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 local screenButtons = {}
 
-local gridCellW = 170   -- FIXED (150 + jarak)
-local gridCellH = 75    -- FIXED (40 + spacing)
+local gridCellW = 170
+local gridCellH = 75
 
 local startX = 20
 local startY = 20
@@ -56,7 +55,7 @@ local function RecalculateGrid()
 end
 
 ----------------------------------------------------------------
--- GUI BUILDER (INI TIDAK DIUBAH SESUAI PERMINTAAN)
+-- GUI BUILDER
 ----------------------------------------------------------------
 
 local Main = Instance.new("Frame", gui)
@@ -118,6 +117,26 @@ Min.Font = Enum.Font.GothamBold
 Min.TextColor3 = Color3.fromRGB(255,215,80)
 Min.ZIndex = 11301
 
+----------------------------------------------------------------
+-- 🔒 GLOBAL LOCK BUTTON
+----------------------------------------------------------------
+
+local Lock = Instance.new("TextButton", Header)
+Lock.Size = UDim2.new(0,48,0,48)
+Lock.Position = UDim2.new(1,-174,0,10)
+Lock.BackgroundTransparency = 1
+Lock.Text = "🔓"
+Lock.TextSize = 32
+Lock.Font = Enum.Font.GothamBold
+Lock.TextColor3 = Color3.fromRGB(255,255,255)
+Lock.ZIndex = 11301
+
+local globalLock = false
+
+----------------------------------------------------------------
+-- NOTE, BODY, FOOTER
+----------------------------------------------------------------
+
 local Note = Instance.new("TextLabel", Main)
 Note.Size = UDim2.new(1,-30,0,28)
 Note.Position = UDim2.new(0,15,0,74)
@@ -147,7 +166,7 @@ Foot.Font = Enum.Font.GothamBold
 Foot.TextColor3 = Color3.new(1,1,1)
 Foot.ZIndex = 11300
 
--- MINIMIZE FIXED
+-- MINIMIZE
 local minimized = false
 Min.MouseButton1Click:Connect(function()
 	minimized = not minimized
@@ -167,14 +186,32 @@ Min.MouseButton1Click:Connect(function()
 end)
 
 ----------------------------------------------------------------
--- FIXED CreateScreenButton (150×40)
+-- GLOBAL LOCK SYSTEM
+----------------------------------------------------------------
+
+local function UpdateAllDraggables()
+	for _,btn in ipairs(screenButtons) do
+		if btn and btn.Parent then
+			btn.Draggable = not globalLock
+		end
+	end
+end
+
+Lock.MouseButton1Click:Connect(function()
+	globalLock = not globalLock
+	Lock.Text = globalLock and "🔒" or "🔓"
+	UpdateAllDraggables()
+end)
+
+----------------------------------------------------------------
+-- CreateScreenButton
 ----------------------------------------------------------------
 
 local function CreateScreenButton(feature)
 	local b = Instance.new("TextButton")
 	b.Name = feature .. "_BTN"
 	b.Parent = screenGui
-	b.Size = UDim2.new(0,150,0,40) -- FIXED SIZE
+	b.Size = UDim2.new(0,150,0,40)
 	b.BackgroundColor3 = Color3.fromRGB(200,0,0)
 	b.TextColor3 = Color3.new(1,1,1)
 	b.Font = Enum.Font.GothamBold
@@ -182,7 +219,8 @@ local function CreateScreenButton(feature)
 	b.Text = feature .. ": OFF"
 	b.ZIndex = 11301
 	b.Active = true
-	b.Draggable = true
+
+	b.Draggable = not globalLock
 
 	Instance.new("UICorner", b).CornerRadius = UDim.new(0,8)
 
@@ -203,7 +241,7 @@ local function CreateScreenButton(feature)
 end
 
 ----------------------------------------------------------------
--- FEATURES (AUTO JUMP / GRAVITY / FLOAT / LAG SWITCH)
+-- FEATURES
 ----------------------------------------------------------------
 
 local autoJumpConn
@@ -304,7 +342,7 @@ local function togglePartFloat(state)
 end
 
 ----------------------------------------------------------------
--- MENU BUTTON CREATOR (AMAN TIDAK DIUBAH VISUALNYA)
+-- MENU BUTTON CREATOR
 ----------------------------------------------------------------
 
 local function NewMenuBtn(txt, x, y, feature)
@@ -384,7 +422,108 @@ NewMenuBtn("Spawn LAG SWITCH", 0.66, 0.03, "LAG SWITCH")
 NewMenuBtn("Spawn PART FLOAT", 0.00, 0.30, "PART FLOAT")
 
 ----------------------------------------------------------------
--- DRAG SYSTEM
+-- FOV CONTROLS (DIPERTAHANKAN)
+----------------------------------------------------------------
+
+local fovBox = Instance.new("TextBox", Body)
+fovBox.Size = UDim2.new(0, 360, 0, 40)
+fovBox.Position = UDim2.new(0.05, 0, 0.55, 0)
+fovBox.PlaceholderText = "Put Your FOV..."
+fovBox.Text = ""
+fovBox.Font = Enum.Font.Gotham
+fovBox.TextSize = 18
+fovBox.TextColor3 = Color3.new(1, 1, 1)
+fovBox.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+fovBox.BorderSizePixel = 0
+fovBox.ZIndex = 11301
+Instance.new("UICorner", fovBox).CornerRadius = UDim.new(0, 6)
+
+local fovBtn = Instance.new("TextButton", Body)
+fovBtn.Size = UDim2.new(0, 360, 0, 40)
+fovBtn.Position = UDim2.new(0.53, 0, 0.55, 0)
+fovBtn.Text = "Set The FOV!"
+fovBtn.Font = Enum.Font.GothamBold
+fovBtn.TextSize = 18
+fovBtn.TextColor3 = Color3.new(1, 1, 1)
+fovBtn.BackgroundColor3 = Color3.fromRGB(0, 180, 0)
+fovBtn.BorderSizePixel = 0
+fovBtn.ZIndex = 11301
+Instance.new("UICorner", fovBtn).CornerRadius = UDim.new(0, 6)
+
+local fovActive = false
+local defaultFOV = workspace.CurrentCamera.FieldOfView
+
+fovBtn.MouseButton1Click:Connect(function()
+	if not fovActive then
+		local inputFOV = tonumber(fovBox.Text)
+		if inputFOV then
+			workspace.CurrentCamera.FieldOfView = inputFOV
+			fovBtn.Text = "Reset Your FOV!"
+			fovBtn.BackgroundColor3 = Color3.fromRGB(200, 0, 0)
+			fovActive = true
+		end
+	else
+		workspace.CurrentCamera.FieldOfView = defaultFOV
+		fovBtn.Text = "Set The FOV!"
+		fovBtn.BackgroundColor3 = Color3.fromRGB(0, 180, 0)
+		fovActive = false
+	end
+end)
+
+----------------------------------------------------------------
+-- TAMBAH FITUR BARU DI TEMPAT VERTICAL SCREEN (Optional)
+----------------------------------------------------------------
+-- Anda bisa menambahkan fitur baru di sini jika mau
+-- Contoh: Fitur Speed Hack
+
+
+local speedBox = Instance.new("TextBox", Body)
+speedBox.Size = UDim2.new(0, 360, 0, 40)
+speedBox.Position = UDim2.new(0.05, 0, 0.75, 0)
+speedBox.PlaceholderText = "Speed Multiplier..."
+speedBox.Text = "2"
+speedBox.Font = Enum.Font.Gotham
+speedBox.TextSize = 18
+speedBox.TextColor3 = Color3.new(1, 1, 1)
+speedBox.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+speedBox.BorderSizePixel = 0
+speedBox.ZIndex = 11301
+Instance.new("UICorner", speedBox).CornerRadius = UDim.new(0, 6)
+
+local speedBtn = Instance.new("TextButton", Body)
+speedBtn.Size = UDim2.new(0, 360, 0, 40)
+speedBtn.Position = UDim2.new(0.53, 0, 0.75, 0)
+speedBtn.Text = "Apply Speed"
+speedBtn.Font = Enum.Font.GothamBold
+speedBtn.TextSize = 18
+speedBtn.TextColor3 = Color3.new(1, 1, 1)
+speedBtn.BackgroundColor3 = Color3.fromRGB(0, 180, 0)
+speedBtn.BorderSizePixel = 0
+speedBtn.ZIndex = 11301
+Instance.new("UICorner", speedBtn).CornerRadius = UDim.new(0, 6)
+
+local originalWalkSpeed = humanoid.WalkSpeed
+local speedActive = false
+
+speedBtn.MouseButton1Click:Connect(function()
+	if not speedActive then
+		local multiplier = tonumber(speedBox.Text)
+		if multiplier and multiplier > 0 and multiplier <= 9999999 then
+			humanoid.WalkSpeed = originalWalkSpeed * multiplier
+			speedBtn.Text = "Reset Speed"
+			speedBtn.BackgroundColor3 = Color3.fromRGB(200, 0, 0)
+			speedActive = true
+		end
+	else
+		humanoid.WalkSpeed = originalWalkSpeed
+		speedBtn.Text = "Apply Speed"
+		speedBtn.BackgroundColor3 = Color3.fromRGB(0, 180, 0)
+		speedActive = false
+	end
+end)
+
+----------------------------------------------------------------
+-- DRAG MENU
 ----------------------------------------------------------------
 
 local UIS = game:GetService("UserInputService")
@@ -413,7 +552,7 @@ Header.InputChanged:Connect(function(input)
 end)
 
 ----------------------------------------------------------------
--- CHARACTER RESPAWN FIX
+-- CHARACTER RESPAWN
 ----------------------------------------------------------------
 
 player.CharacterAdded:Connect(function(char)
