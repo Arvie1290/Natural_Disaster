@@ -63,14 +63,34 @@ MainFrame.Draggable = false
 MainFrame.Parent = ScreenGui  
   
 -- Title bar  
-local TitleBar = Instance.new("TextLabel")  
+local TitleBar = Instance.new("Frame")  
 TitleBar.Size = UDim2.new(1, -120, 0, 30)  -- Diperlebar untuk tombol settings
 TitleBar.BackgroundColor3 = Color3.fromRGB(40, 0, 0)  
-TitleBar.Text = "ArvieHub (V1.2)"  
-TitleBar.TextColor3 = Color3.fromRGB(255, 0, 0)  
-TitleBar.Font = Enum.Font.SourceSansBold  
-TitleBar.TextSize = 18  
 TitleBar.Parent = MainFrame  
+
+-- Photo frame di title bar (MENGGUNAKAN TEXTURE ID YANG DIBERIKAN)
+local TitlePhotoFrame = Instance.new("ImageLabel")
+TitlePhotoFrame.Size = UDim2.new(0, 28, 0, 28) -- Sedikit lebih besar
+TitlePhotoFrame.Position = UDim2.new(0, 3, 0.5, -14) -- Posisi kiri tengah
+TitlePhotoFrame.BackgroundTransparency = 1
+TitlePhotoFrame.Image = "rbxassetid://123833064817810" -- TEXTURE ID YANG DIBERIKAN
+TitlePhotoFrame.ScaleType = Enum.ScaleType.Fit
+TitlePhotoFrame.BackgroundColor3 = Color3.fromRGB(60, 0, 0)
+TitlePhotoFrame.BorderSizePixel = 1
+TitlePhotoFrame.BorderColor3 = Color3.fromRGB(255, 0, 0)
+TitlePhotoFrame.Parent = TitleBar
+
+-- Text label untuk judul di samping kanan photo
+local TitleText = Instance.new("TextLabel")
+TitleText.Size = UDim2.new(1, -35, 1, 0)
+TitleText.Position = UDim2.new(0, 35, 0, 0)
+TitleText.BackgroundTransparency = 1
+TitleText.Text = "ArvieHub V1.2"
+TitleText.TextColor3 = Color3.fromRGB(255, 0, 0)
+TitleText.Font = Enum.Font.SourceSansBold
+TitleText.TextSize = 18
+TitleText.TextXAlignment = Enum.TextXAlignment.Left
+TitleText.Parent = TitleBar
   
 -- Tombol close  
 local CloseBtn = Instance.new("TextButton")  
@@ -143,6 +163,7 @@ local function updateDrag(input)
     local delta = input.Position - dragStart  
     MainFrame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)  
 end  
+
 TitleBar.InputBegan:Connect(function(input)  
     if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then  
         dragging = true  
@@ -155,6 +176,33 @@ TitleBar.InputBegan:Connect(function(input)
         end)  
     end  
 end)  
+
+TitlePhotoFrame.InputBegan:Connect(function(input)  
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then  
+        dragging = true  
+        dragStart = input.Position  
+        startPos = MainFrame.Position  
+        input.Changed:Connect(function()  
+            if input.UserInputState == Enum.UserInputState.End then  
+                dragging = false  
+            end  
+        end)  
+    end  
+end)  
+
+TitleText.InputBegan:Connect(function(input)  
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then  
+        dragging = true  
+        dragStart = input.Position  
+        startPos = MainFrame.Position  
+        input.Changed:Connect(function()  
+            if input.UserInputState == Enum.UserInputState.End then  
+                dragging = false  
+            end  
+        end)  
+    end  
+end)  
+
 UserInputService.InputChanged:Connect(function(input)  
     if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then  
         updateDrag(input)  
@@ -641,3 +689,69 @@ end)
 
 -- Update ScriptList size
 ScriptList.CanvasSize = UDim2.new(0, 0, 0, #scripts * 40)
+
+-- ============================================================================
+-- OPTIONAL: TOOLTIP DAN EFEK UNTUK PHOTO FRAME
+-- ============================================================================
+
+-- Tooltip untuk photo frame
+local Tooltip = Instance.new("TextLabel")
+Tooltip.Size = UDim2.new(0, 150, 0, 30)
+Tooltip.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+Tooltip.TextColor3 = Color3.fromRGB(255, 255, 255)
+Tooltip.Text = "ArvieHub Logo - Version 1.2"
+Tooltip.Font = Enum.Font.SourceSans
+Tooltip.TextSize = 12
+Tooltip.Visible = false
+Tooltip.Parent = ScreenGui
+Tooltip.ZIndex = 1000
+
+TitlePhotoFrame.MouseEnter:Connect(function()
+    Tooltip.Visible = true
+    Tooltip.Position = UDim2.new(0, TitlePhotoFrame.AbsolutePosition.X, 0, TitlePhotoFrame.AbsolutePosition.Y - 35)
+end)
+
+TitlePhotoFrame.MouseLeave:Connect(function()
+    Tooltip.Visible = false
+end)
+
+TitlePhotoFrame.MouseMoved:Connect(function()
+    if Tooltip.Visible then
+        Tooltip.Position = UDim2.new(0, TitlePhotoFrame.AbsolutePosition.X, 0, TitlePhotoFrame.AbsolutePosition.Y - 35)
+    end
+end)
+
+-- Efek hover untuk photo frame
+TitlePhotoFrame.MouseEnter:Connect(function()
+    TitlePhotoFrame.ImageColor3 = Color3.fromRGB(255, 200, 200)
+    TitlePhotoFrame.BorderColor3 = Color3.fromRGB(255, 255, 0)
+end)
+
+TitlePhotoFrame.MouseLeave:Connect(function()
+    TitlePhotoFrame.ImageColor3 = Color3.fromRGB(255, 255, 255)
+    TitlePhotoFrame.BorderColor3 = Color3.fromRGB(255, 0, 0)
+end)
+
+-- ============================================================================
+-- FUNGSI BACKUP JIKA TEXTURE ID TIDAK BEKERJA
+-- ============================================================================
+
+-- Cek apakah texture ID valid
+task.spawn(function()
+    wait(2) -- Tunggu sedikit
+    
+    -- Jika gambar tidak muncul, coba format lain
+    if TitlePhotoFrame.ImageTransparency == 1 or TitlePhotoFrame.Image == "" then
+        print("Texture ID tidak bekerja, mencoba format alternatif...")
+        
+        -- Coba format lain
+        TitlePhotoFrame.Image = "http://www.roblox.com/asset/?id=123833064817810"
+        
+        -- Jika masih tidak bekerja, gunakan backup image
+        wait(1)
+        if TitlePhotoFrame.ImageTransparency == 1 then
+            print("Menggunakan backup image...")
+            TitlePhotoFrame.Image = "rbxassetid://75756933857153" -- Backup ID yang sudah terbukti bekerja
+        end
+    end
+end)
